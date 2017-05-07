@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{! Document Settings }}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{! Page Meta }}
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset "images/favicon.ico"}}" />
+
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/6076934/6684552/css/fonts.css"/>
+    {{!-- TODO: use this from ghost.org when available --}}
+    {{!-- <link href="https://ghost.org/public/app.css" media="all" rel="stylesheet"> --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" />
+
+    {{!-- Font for global header and footer --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/custom.css"}}" />
+
+    <meta property="twitter:domain" content="Ghost.org" />
+    <meta property="og:site_name" content="Ghost" />
+    <meta property="fb:admins" content="511697361" />
+
+    {{ghost_head}}
+</head>
+<body class="{{body_class}}">
+    <div id="fb-root"></div>
+    <header class="gh-head">
+        <nav class="gh-navbar inner">
+            <div class="gh-navbar-left">
+              <a class="gh-nav-logo gh-navbar-item" href="https://blog.ghost.org">{{ @blog.title }}
+                {{!-- <div class="gh-nav-logo-suffix">Blog</div> --}}
+              </a>
+              <span>{{ @blog.description }}</span>
+
+            </div>
+            <div class="gh-navbar-right">
+              {{!-- <a class="gh-navbar-item" href="https://blog.ghost.org/">Product</a>
+              <a class="gh-navbar-item" href="http://dev.ghost.org">Dev</a>
+              <a class="gh-navbar-btn gh-btn" href="https://ghost.org" id="signin-button"><span>Back to Ghost</span></a> --}}
+            </div>
+        </nav>
+    </header>
+
+    <header class="gh-mobilehead">
+        <nav class="gh-mobilenavbar">
+            {{!-- <a class="gh-nav-burger" href="#">
+                <div class="hamburger hamburger--collapse"
+         aria-label="Menu" role="button" aria-controls="navigation">
+                    <div class="hamburger-box"><div class="hamburger-inner"></div></div>
+                </div>
+            </a> --}}
+            <a class="gh-nav-logo" href="/">
+
+          	{{ @blog.title }}
+
+
+          </a>
+            {{!-- <a class="gh-login-link" id="signin-button-mobile" href="https://ghost.org">Back to Ghost</a> --}}
+        </nav>
+        {{!-- <div class="gh-mobilemenu">
+          <a href="https://blog.ghost.org/">Product</a>
+          <a href="http://dev.ghost.org">Dev</a>
+          <a href="https://ghost.org">Back to Ghost</a>
+        </div> --}}
+    </header>
+
+    <main role="main">
+        {{!--<header class="blog-header">
+            <nav class="blog-nav inner">
+                {{navigation}}
+            </nav>
+        </header>--}}
+        <div class="page-wrapper">
+            {{{body}}}
+        </div>
+    </main>
+
+    <div class="modal fade gh-modal" id="blogsubscribe" tabindex="-1" role="dialog" aria-labelledby="Email subscription modal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <a class="modal-close" data-dismiss="modal" aria-hidden="true" href="#"><svg version="1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.707 12L23.854.854a.5.5 0 0 0-.707-.707L12 11.293.854.146a.5.5 0 0 0-.707.707L11.293 12 .146 23.146a.5.5 0 0 0 .708.708L12 12.707l11.146 11.146a.5.5 0 1 0 .708-.706L12.707 12z"/></svg><span class="hidden">Close</span></a>
+                    <h4 class="modal-title">The latest content, once per week.</h4>
+                    <form class="gh-modal-form" action="{{! populated via code injection}}" method="post">
+                        <div class="gh-modal-form-container">
+                            <input id="fieldEmail" class="gh-input" name="{{! populated via code injection}}" type="email" placeholder="Your email address" autofocus="true" required />
+                            <button class="gh-btn gh-btn-green" type="submit"><span>Subscribe</span></button>
+                        </div>
+                        <p><strong>Privacy policy:</strong> No spam. No jibber jabber. Unsubscribe any time.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="gh-foot gh-foot-min">
+        <div class="gh-foot-content inner">
+            <nav class="gh-foot-min-nav">
+                <a class="gh-foot-min-item gh-foot-min-logo" href="/">{{ @blog.title }}
+                </a>
+              {{!-- <a class="gh-foot-min-item" href="https://blog.ghost.org">Product</a>
+              <a class="gh-foot-min-item" href="https://dev.ghost.org">Dev</a>
+              <a class="gh-foot-min-item" href="https://ideas.ghost.org">Feedback</a>
+              <a class="gh-foot-min-item" href="https://help.ghost.org/hc">Support</a>
+              <a class="gh-foot-min-item" href="https://twitter.com/tryghost">@TryGhost</a> --}}
+            </nav>
+            {{!-- <div class="gh-foot-min-back">
+                <a class="gh-foot-min-item" href="https://ghost.org">Back to Ghost</a>
+            </div> --}}
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    {{ghost_foot}}
+
+    <script src="https://ghost.org/navigation/"></script>
+
+    <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/prism.js"}}"></script>
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+
+    <script type="text/javascript" src="{{asset "js/bootstrap-modal.js"}}"></script>
+    <script type="text/javascript" src="https://auth.ghost.org/signin-button.js"></script>
+
+</body>
+</html>

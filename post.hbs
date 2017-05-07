@@ -1,0 +1,76 @@
+{{!< default}}
+
+<div class="wrap {{post_class}}">
+    <section class="blog-content">
+
+        <article>
+        {{#post}}
+
+            {{! If post is featured and has an image, make a big hero banner }}
+            {{#if image}}{{#if featured}}
+            <div class="hero">
+                <div class="hero-image" style="background-image: url({{image}});"></div>
+            </div>
+            {{/if}}{{/if}}
+
+            <a class="post-meta back-link" href="{{@blog.url}}">&larr; Back to the front page</a>
+
+            <h1 class="post-title">{{{title}}}</h1>
+            <section class="post-meta">
+                <img class="author-img" src="{{author.image}}" alt="Author image" nopin="nopin" />
+                <span class="author-name">{{author}}</span>
+                on the
+                <time datetime="{{date format='YYYY-MM-DD'}}">{{date format="Do of MMMM YYYY"}}</time>
+                <span class="tags">{{tags prefix="in "}}</span>
+            </section>
+
+            <section class="post-content">
+                {{#if image}}{{#unless featured}}<img src="{{image}}" alt="Post image" />{{/unless}}{{/if}}
+                {{content}}
+            </section>
+
+            <footer class="post-footer">
+
+                <section class="author">
+                    <div class="author-img">
+                        <img class="author-img" src="{{author.image}}" alt="Author image" nopin="nopin" />
+                    </div>
+                    <div class="author-meta">
+                        <h4>{{author.name}}</h4>
+                        <p>{{{author.bio}}} <a href="{{author.website}}">{{author.website}}</a></p>
+                    </div>
+                </section>
+
+                {{#next_post}}
+                <section class="read-next">
+                    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
+                        <section class="post">
+                            <h2>{{title}}</h2>
+                            <p>{{excerpt words="19"}}&hellip;</p>
+                        </section>
+                    </a>
+                </section>
+                {{/next_post}}
+
+                <a class="gh-btn gh-btn-blue gh-btn-block blog-subscribe-btn" data-toggle="modal" data-target="#blogsubscribe"><span>Subscribe to Weekly Posts</span></a>
+
+            </footer>
+
+            <section class="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    var disqus_identifier = 'ghost-{{id}}';
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+            </section>
+
+        {{/post}}
+        </article>
+
+    </section>
+
+</div>

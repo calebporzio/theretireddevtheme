@@ -1,0 +1,1142 @@
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
+/*
+
+    0.  Imports & Vars
+    1.  Global Content
+    2.  Global Layout
+    3.  Single Post
+    4.  Pagination
+    5.  Read More - Next/Prev Post Links
+    6.  Author Page
+    7.  Prism
+    8.  Modal
+
+ */
+
+
+/* ==========================================================================
+   0. Imports & Vars
+   ========================================================================== */
+
+:root {
+    --darkgrey: #343f44;
+    --midgrey: #738a94;
+    --lightgrey: #c5d2d9;
+    --whitegrey: #e5eff5;
+    --brown: #a3821a;
+    --lightbrown: #edece4;
+    --blue: #3eb0ef;
+    --red: #f05230;
+    --orange: #f2a925;
+    --green: #a4d037;
+    --purple: #ad26b4;
+    --yellow: #fecd35;
+    --pink: #fa3a57;
+}
+
+/* ==========================================================================
+   1. Global Content
+   ========================================================================== */
+
+.blog-content {
+    font-size: 1.6rem;
+}
+
+body {
+    background: #f8fafc;
+}
+
+p {
+    margin: 1.6em 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 3.2em 0 0 0;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.2em;
+    letter-spacing: -2px;
+    text-indent: -3px;
+}
+
+h2 {
+    padding-top: 0;
+    border: none;
+    font-size: 3rem;
+    line-height: 1.2em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    text-indent: -2px;
+}
+
+h3 {
+    font-size: 2.5rem;
+}
+
+h4 {
+    font-size: 2.2rem;
+}
+
+h5 {
+    font-size: 2rem;
+}
+
+h6 {
+    font-size: 1.8rem;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: var(--darkgrey);
+    text-decoration: underline;
+}
+
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover {
+    color: var(--blue);
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.wrap {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1030px;
+    width: 100%;
+}
+
+.vertical {
+    position: relative;
+    top: -2%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+@media (max-width: 500px) {
+    .blog-content {
+        font-size: 1.5rem;
+    }
+    h1 {
+        font-size: 2.8rem;
+    }
+    h2 {
+        font-size: 2.3rem;
+    }
+    h3,
+    h4 {
+        font-size: 2rem;
+    }
+}
+
+article aside {
+    float: right;
+    margin: 0 2.2em 1.6em 2.2em;
+    padding: 0 2.2em;
+    width: 30%;
+    background: var(--whitegrey);
+    border-radius: 3px;
+}
+
+/* ==========================================================================
+   2. Global Layout
+   ========================================================================== */
+
+.gh-nav-logo,
+.gh-nav-logo:hover {
+    color: #98c22e;
+}
+
+.page-wrapper {
+    overflow: hidden;
+    padding: 4vw;
+    border: none;
+    background: linear-gradient(#f8fafc,#f4f8fb);
+}
+
+.blog-header {
+    margin-top: -40px;
+    padding: 0 4vw;
+    border-bottom: var(--whitegrey) 1px solid;
+}
+
+.blog-header .nav {
+    margin: 0 auto;
+    width: 100%;
+    border: none;
+}
+
+.blog-header ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0;
+    border: none;
+}
+
+.blog-header li {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0;
+}
+
+.blog-header li a {
+    flex-shrink: 1;
+    padding: 18px 25px;
+    border: none;
+    color: var(--midgrey);
+    font-size: 1.4rem;
+    font-weight: 100;
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+.blog-header li a:hover {
+    color: var(--blue);
+    opacity: 1;
+}
+
+.blog-header .nav-current a {
+    color: var(--blue);
+    opacity: 1;
+}
+
+.blog-header li:first-child a {
+    padding-left: 0;
+    color: var(--darkgrey);
+    font-weight: 400;
+}
+
+.post-template .blog-content {
+    margin: 4vw auto;
+    padding: 30px 40px 40px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+@media (max-width: 700px) {
+    .post-template .blog-content {
+        padding: 0;
+    }
+}
+
+.blog-content {
+    flex: 0 1 auto;
+    max-width: 780px;
+}
+
+.blog-sidebar {
+    flex: 0 0 33.3333%;
+    margin-left: 60px;
+}
+
+.blog-sidebar h1,
+.blog-sidebar h2,
+.blog-sidebar h3,
+.blog-sidebar h4,
+.blog-sidebar h5,
+.blog-sidebar h6 {
+    margin-top: 0;
+}
+
+.blog-sidebar p {
+    margin: 0 0 15px 0;
+    font-size: 17px;
+    line-height: 1.3em;
+    font-weight: 200;
+}
+.widget {
+    margin-bottom: 50px;
+    padding: 25px 30px 30px;
+}
+
+.blog-subscribe {
+    display: block;
+    padding: 0;
+    padding: 35px 20px 45px;
+    border: 1px solid var(--whitegrey);
+    color: inherit;
+    text-align: center;
+    text-decoration: none!important;
+    background: #fff;
+    border-radius: 5px;
+    transition: all 0.6s ease-out;
+}
+
+.blog-subscribe h3 {
+    font-weight: bold;
+}
+
+.blog-subscribe p {
+    margin: 1rem 0 2.5rem;
+    color: var(--midgrey);
+    font-size: 1.6rem;
+    font-weight: 200;
+}
+
+.blog-subscribe svg {
+    margin-bottom: 15px;
+    width: auto;
+    height: 30px;
+    fill: var(--purple);
+}
+
+.blog-subscribe:hover {
+    border-color: var(--blue);
+    cursor: pointer;
+}
+
+.blog-subscribe-btn {
+    text-align: center;
+}
+
+.blog-subscribe-btn:hover {
+    cursor: pointer;
+}
+
+.blog-text {
+    border: 1px solid var(--whitegrey);
+    color: var(--midgrey);
+    background: linear-gradient(#f8fafc, #f4f8fb);
+    border-radius: 5px;
+}
+
+.blog-text ul {
+    margin: 0;
+    padding: 0 0 0 1.2em;
+}
+
+.popular-posts {
+    padding: 0;
+}
+
+.popular-posts h3 {
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.popular-posts mark {
+    padding: 0 4px;
+    color: #fff;
+    font-weight: normal;
+    background: var(--yellow);
+}
+
+.popular-posts ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.popular-posts li {
+    position: relative;
+    display: block;
+    margin: 0 0 2px 0;
+    font-size: 1.4rem;
+    line-height: 1.4em;
+    background: #fff;
+}
+
+.popular-posts a {
+    display: block;
+    padding: 15px 15px 15px 75px;
+    min-height: 38px;
+    color: rgba(0,0,0,0.7);
+}
+
+.popular-posts a:hover {
+    text-decoration: none;
+}
+
+.popular-posts .number {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    padding: 10px;
+    width: 37px;
+    border-left: var(--blue) 3px solid;
+    color: rgba(0,0,0,0.2);
+    font-size: 2.8rem;
+    line-height: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    background: #fff;
+}
+
+
+.popular-posts li:hover .number {
+    background: rgba(229, 239, 245, 1);
+}
+
+.popular-posts li:nth-child(3n) .number {
+    border-color: var(--green);
+}
+.popular-posts li:nth-child(3n+2) .number {
+    border-color: var(--yellow);
+}
+
+.post {
+    margin-bottom: 40px;
+    padding: 20px 30px 30px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 0 1px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.03);
+}
+
+@media (max-width: 700) {
+    .post {
+        padding: 15px 20px 20px;
+    }
+}
+
+.post-title {
+    margin: 0;
+}
+
+.post-title a {
+    text-decoration: none;
+}
+
+.post-excerpt p {
+    margin: 2.6rem 0 0;
+    line-height: 1.7em;
+}
+
+.post-meta {
+    margin: 5px 0;
+    color: #9eabb3;
+    font-size: 1.4rem;
+}
+
+.post-meta .author-img {
+    float: left;
+    margin-right: 9px;
+    width: 24px;
+    height: 24px;
+}
+
+.author-img {
+    border-radius: 100%;
+}
+
+.post-meta a {
+    color: #9eabb3;
+    text-decoration: none;
+}
+
+.post-meta a:hover {
+    text-decoration: underline;
+}
+
+.read-more {
+    font-size: 1.4rem;
+    white-space: nowrap;
+}
+
+@media (max-width: 500px) {
+    .post-meta .author-img {
+        display: none;
+    }
+    .post-excerpt p {
+        margin: 2rem 0;
+    }
+    .post {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 660px) {
+    .page-wrapper {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 710px) {
+    .blog-header {
+        display: none;
+    }
+
+    .gh-head {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .wrap {
+        flex-wrap: wrap;
+    }
+    .blog-sidebar {
+        margin-left: 0;
+    }
+    .blog-content,
+    .blog-sidebar {
+        flex: 0 1 100%;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    .popular-posts .number {
+        padding: 5px;
+    }
+}
+
+/* ==========================================================================
+   3. Single Post
+   ========================================================================== */
+
+.post-template .post {
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.post-content {
+    margin-bottom: 3.2em;
+    line-height: 1.7em;
+}
+
+.post-content img {
+    display: block;
+    margin: 2.2em auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.post-content .full-img {
+    margin-left: -60px;
+    max-width: none;
+    width: calc(100% + 60px);
+}
+
+.author {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 1.6em 0;
+    padding: 30px;
+    border: 1px solid #f0f4f7;
+    background: linear-gradient(#f8fafc,#f4f8fb);
+    border-radius: 5px;
+}
+
+.author .author-img {
+    flex: 0 0 80px;
+}
+
+.author .author-img img {
+    width: 80px;
+    height: 80px;
+    border: 5px solid #fff;
+}
+
+.author-meta {
+    flex: 0 1 auto;
+    margin-left: 20px;
+}
+
+.author-meta h4 {
+    margin-top: 0.25rem;
+    font-size: 1.8rem;
+}
+
+.author-meta p {
+    margin: 1rem 0 0 0;
+    font-size: 1.4rem;
+}
+
+.footnotes {
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.footnotes li {
+    margin: 0.6rem 0;
+}
+
+.footnotes p {
+    margin: 0;
+}
+
+.comments {
+    margin-top: 3.2em;
+}
+
+
+@media (max-width: 1100px) {
+    .post-content .full-img {
+        margin-left: -15px;
+        width: calc(100% + 30px);
+    }
+}
+
+@media (max-width: 850px) {
+    .post-content .full-img {
+        margin-right: -15%;
+        margin-left: -15%;
+        width: 130%;
+    }
+}
+
+@media (max-width: 650px) {
+    .post-content .full-img {
+        margin-right: -11%;
+        margin-left: -11%;
+        width: 122%;
+    }
+}
+
+@media (max-width: 550px) {
+    .author {
+        flex-wrap: wrap;
+        padding: 20px;
+        text-align: center;
+    }
+    .author .author-img {
+        flex: 0 0 100%;
+    }
+    .author-meta {
+        flex: 0 1 100%;
+        margin-left: 0;
+    }
+    .author-meta p {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .post-content img {
+        margin: 1.6em auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .post-content .full-img {
+        margin-right: -15px;
+        margin-left: -15px;
+        width: 100%;
+        width: calc(100% + 30px);
+    }
+}
+
+/* ==========================================================================
+   4. Pagination - Tools to let you flick between pages
+   ========================================================================== */
+
+/* The main wrapper for our pagination links */
+.pagination {
+    position: relative;
+    margin: 40px auto 20px;
+    color: #9eabb3;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.pagination a {
+    color: #9eabb3;
+}
+
+.pagination a:hover {
+    text-decoration: none;
+}
+
+/* Push the previous/next links out to the left/right */
+.older-posts,
+.newer-posts {
+    position: absolute;
+    display: inline-block;
+    padding: 5px 15px;
+    border: #ebf2f6 2px solid;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: border ease 0.3s;
+}
+
+.older-posts {
+    right: 0;
+}
+
+.page-number {
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.newer-posts {
+    left: 0;
+}
+
+.older-posts:hover,
+.newer-posts:hover {
+    border-color: #9eabb3;
+}
+
+@media (max-width: 500px) {
+    .older-posts,
+    .newer-posts {
+        position: static;
+        margin: 10px 0;
+    }
+
+    .page-number {
+        display: block;
+    }
+}
+
+/*misc hack - no idea why this is needed, but it is*/
+@media (min-width: 768px) {
+    .navbar-collapse.closed {
+        display: block!important;
+        overflow: visible!important;
+        padding-bottom: 0;
+        height: auto!important;
+    }
+}
+
+/* ==========================================================================
+   5. Read More - Next/Prev Post Links
+   ========================================================================== */
+
+.read-next {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+    margin: 4rem 0;
+    border-radius: 5px;
+
+    -webkit-box-align: stretch;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+}
+
+.read-next-story {
+    position: relative;
+    flex-grow: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    min-width: 50%;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    background: #222 no-repeat center center;
+    background-size: cover;
+
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+}
+.read-next-story:hover {
+    text-decoration: none;
+}
+.read-next-story:hover:before {
+    background: rgba(0,0,0,0.8);
+    transition: all 0.2s ease;
+}
+.read-next-story:hover .post:before {
+    color: #222;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+.read-next-story:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    background: rgba(0,0,0,0.7);
+    transition: all 0.5s ease;
+}
+
+.read-next-story .post {
+    position: relative;
+    margin: 0 auto;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    width: 80%;
+}
+
+.read-next-story .post:before {
+    content: "Read This Next";
+    padding: 4px 10px 5px;
+    border: rgba(255,255,255,0.5) 1px solid;
+    color: rgba(255,255,255,0.8);
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+}
+.read-next-story.prev .post:before {
+    content: "You Might Enjoy";
+}
+
+.read-next-story h2 {
+    margin-top: 1rem;
+    color: #fff;
+}
+
+.read-next-story p {
+    margin: 5px 0 0 0;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4em;
+    font-weight: 200;
+}
+
+/* Special styles for posts with no cover images */
+.read-next-story.no-cover {
+    background: #fff;
+}
+
+.read-next-story.no-cover:before {
+    display: none;
+}
+
+.read-next-story.no-cover .post:before {
+    border-color: rgba(0,0,0,0.2);
+    color: rgba(0,0,0,0.5);
+}
+
+.read-next-story.no-cover:hover .post:before {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.read-next-story.no-cover h2 {
+    color: rgba(0,0,0,0.8);
+}
+
+.read-next-story.no-cover p {
+    color: rgba(0,0,0,0.5);
+}
+
+/* if there are two posts without covers, put a border between them */
+.read-next-story.no-cover + .read-next-story.no-cover {
+    border-left: rgba(0,0,100,0.04) 1px solid;
+}
+
+/* ==========================================================================
+   6. Author Page
+   ========================================================================== */
+
+.author-header {
+    margin: -40px auto 20px;
+    padding: 0;
+    max-width: 1030px;
+    width: 100%;
+    border-bottom: var(--whitegrey) 1px solid;
+}
+
+@media (max-width: 710px) {
+    .author-header {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   7. Prism
+   ========================================================================== */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: #f8f8f2;
+    font-family: Consolas, Monaco, "Andale Mono", monospace;
+    line-height: 1.5;
+    text-align: left;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
+    direction: ltr;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    overflow: auto;
+    margin: 0.5em 0;
+    padding: 1em;
+    border-radius: 0.3em;
+}
+
+pre {
+    overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+    background: #272822;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: 0.1em;
+    border-radius: 0.3em;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: slategray;
+}
+
+.token.punctuation {
+    color: #f8f8f2;
+}
+
+.namespace {
+    opacity: 0.7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #f92672;
+}
+
+.token.boolean,
+.token.number {
+    color: #ae81ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #a6e22e;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: #f8f8f2;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function {
+    color: #e6db74;
+}
+
+.token.keyword {
+    color: #66d9ef;
+}
+
+.token.regex,
+.token.important {
+    color: #fd971f;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.wrap article aside {
+    display: none;
+}
+
+.wrap.featured .blog-content {
+    flex: 0 1 100%;
+    width: 100%;
+}
+.wrap.featured .blog-sidebar {
+    display: none;
+}
+
+.wrap.featured article {
+    margin: 0 auto 0;
+    max-width: 700px;
+    font-size: 1.15em;
+}
+
+.wrap.featured .post-title {
+    margin-top: 520px;
+}
+
+@media (max-width: 900px) {
+    .wrap.featured .post-title {
+        margin-top: 330px;
+    }
+}
+@media (max-width: 500px) {
+    .wrap.featured .post-title {
+        margin-top: 190px;
+    }
+}
+
+.wrap.featured aside {
+    display: block;
+    float: right;
+    margin-top: 5px;
+    margin-right: -150px;
+    margin-left: 30px;
+    padding: 20px 30px 25px;
+    width: 300px;
+    border-top: 3px solid #55acee;
+    color: #111;
+    font-size: 15px;
+    line-height: 1.8em;
+}
+
+@media (max-width: 1020px) {
+    .wrap.featured aside {
+        display: none;
+    }
+}
+
+.wrap.featured .post-content .full-img {
+    margin-right: -60px;
+    margin-left: -60px;
+    max-width: none;
+    width: calc(100% + 120px);
+}
+
+@media (max-width: 1100px) {
+    .wrap.featured .post-content .full-img {
+        margin-right: -15px;
+        margin-left: -15px;
+        width: calc(100% + 30px);
+    }
+}
+
+/* Hero */
+.hero {
+    position: absolute;
+    right: -60px;
+    left: -60px;
+    overflow: hidden;
+}
+
+@media (max-width: 850px) {
+    .hero {
+        right: -11%;
+        left: -11%;
+    }
+}
+
+.hero-image {
+    height: 500px;
+    background: #eee no-repeat center center;
+    background-size: cover;
+}
+
+@media (max-width: 900px) {
+    .hero-image {
+        height: 300px;
+    }
+}
+@media (max-width: 500px) {
+    .hero-image {
+        height: 200px;
+    }
+}
+
+/* ==========================================================================
+   8. Modal
+   ========================================================================== */
+
+.gh-modal .modal-content {
+    color: #fff;
+    text-align: center;
+    background: url(../images/bg-poly.svg) 50%/115% scroll,radial-gradient(circle farthest-corner at right bottom,#9ea5ff,#7090fa 10%,#4c99f0 21%,#2b99ee 27%,#27a4e7 35%,#1c94d4 50%,#19a0c2 63%,#1fa6ad 93%,#1c9c7e);
+    /* Pattern - https://qrohlf.com/trianglify-generator/ */
+
+    background-blend-mode: overlay;
+}
+
+.gh-modal .modal-close svg {
+    fill: #fff;
+}
+
+.gh-modal .modal-close svg:hover {
+    fill: #fff;
+}
+
+.gh-modal .modal-title {
+    color: #fff;
+}
+
+.gh-modal .modal-body {
+    padding: 50px 25px;
+}
+
+.gh-modal form {
+    margin: 0;
+    padding: 0;
+    max-width: 600px;
+    background: none;
+}
+
+.gh-modal-form-container {
+    display: flex;
+    margin: 2vw auto 1vw;
+    max-width: 400px;
+}
+
+.gh-modal form .gh-input {
+    margin-right: 15px;
+    margin-bottom: 0;
+    padding: 11px 12px;
+}
+
+.gh-modal form p {
+    margin: 1rem 0 0;
+    font-size: 1.4rem;
+}
